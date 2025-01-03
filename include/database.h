@@ -11,7 +11,7 @@ typedef enum {
 
 typedef struct {
 	DB_TYPE type;
-	void *column;
+	void *content;
 } DB_COLUMN;
 
 typedef struct {
@@ -35,7 +35,7 @@ typedef struct {
 typedef struct {
 	DB_TYPE type;
 	void* content;
-} DB_CONTENT;
+} DB_CONTENT_RET;
 
 //name maximally 10 char long
 void createDatabase(char name[DB_STRING_SIZE]);
@@ -48,16 +48,18 @@ DB_TABLE* getTable(DB* db, char name[DB_STRING_SIZE]);
 
 void addColumn(DB_TABLE* table, DB_TYPE type,int prev_column);
 void remColumn(DB_TABLE* table, unsigned int column);
-void addRow(DB_TABLE* table,int prev_row);
-void remRow(DB_TABLE* table, unsigned int row);
+//void addRow(DB_TABLE* table,int prev_row);
+//void remRow(DB_TABLE* table, unsigned int row);
 
-void addContent();
-void addRowContent();
-void addColumnContent();
+void addContent(DB_TABLE* table, unsigned int column, unsigned int row, void *content);
+//void addRowContent();
+void addColumnContent(DB_TABLE* table, unsigned int column, void *content);
 
-DB_CONTENT getContent();
+DB_CONTENT_RET getContent(DB_TABLE* table, unsigned int column, unsigned int row);
 
-void* getRowContent();
-void* getColumnContent();
+DB_TYPE getColumnType(DB_TABLE* table, unsigned int column);
+
+//void* getRowContent();
+void* getColumnContent(DB_TABLE* table, unsigned int column);
 
 #endif

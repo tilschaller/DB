@@ -72,16 +72,75 @@ void addColumn(DB_TABLE* table, DB_TYPE type, int prev_column) {
 	DB_COLUMN* column = (DB_COLUMN*)table->table + (prev_column + 1);
 	table->num_column++;
 
-	memmove(column + 1, column, sizeof(column) * (table->num_column - (prev_column + 2))); //does this work?
+	memmove(column + 1, column, sizeof(DB_COLUMN) * (table->num_column - (prev_column + 2))); //does this work?
 
 	column->type = type;
-	column->column = malloc(type * table->num_row);
+	column->content = malloc(type * table->num_row);
 }
 
 void remColumn(DB_TABLE* table, unsigned int column) {
 	if (table==0) {return;}
 
-	if (table->num_column < 2) {
+	//TODO: add safety checks, like checking if row to delete actually exists
 
+	DB_COLUMN* column_struct = (DB_COLUMN*)table->table + (column + 1);
+	free(column_struct->content);
+
+	if (table->num_column == 1) {
+		free(table->table);
+	} else {
+		if ((++column != table->num_column)) {
+			memmove(column_struct, column_struct + 1, sizeof(DB_COLUMN) * (table->num_column - (++column)));
+		}
+		table->table = realloc(table->table, sizeof(DB_COLUMN) * (table->num_column - 1));
 	}
+
+	table->num_column--;
+}
+
+//void addRow(DB_TABLE* table,int prev_row) {}
+//void remRow(DB_TABLE* table, unsigned int row) {}
+
+void addContent(DB_TABLE* table, unsigned int column, unsigned int row, void *content) {
+	if (table==0) {return;}
+
+	DB_COLUMN* column_struct = (DB_COLUMN*)table->table + (++column);
+	void* db_content_ptr = ((void *)column_struct) + (sizeof(column_struct->type) * (++row));
+	memcpy(db_content_ptr, content, column_struct->type);
+}
+
+void addColumnContent(DB_TABLE* table, unsigned int column, void *content) {
+	if (table==0) {return;}
+
+	DB_COLUMN* column_struct = (DB_COLUMN*)table->table + (++column);
+	memcpy(column_struct->content, content, table->num_row * column_struct->type);
+}
+
+DB_CONTENT_RET getContent(DB_TABLE* table, unsigned int column, unsigned int row) {
+	//check if table is valid
+
+	DB_CONTENT_RET content;
+
+	DB_COLUMN* column_struct = (DB_COLUMN*)table->table + (++column);
+	void* db_content_ptr = ((void *)column_struct) + (sizeof(column_struct->type) * (++row));
+
+	content.type = column_struct->type;
+	content.content = db_content_ptr;
+
+	return content;
+}
+
+DB_TYPE getColumnType(DB_TABLE* table, unsigned int column) {
+	//check if table is valid
+
+	DB_COLUMN* column_struct = (DB_COLUMN*)table->table + (++column);
+
+	return column_struct->type;
+}
+
+void* getColumnContent(DB_TABLE* table, unsigned int column) {
+	if (table==0) {return 0;}
+
+	DB_COLUMN* column_struct = (DB_COLUMN*)table->table + (++column);
+	return column_struct->content;
 }
