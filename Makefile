@@ -4,4 +4,4 @@ test:
 
 database:
 	gcc -c  lib_src/database.c -o build/database.o -static
-	ar cr lib/database.a build/database.o
+	ar cr database/database.a build/database.o
