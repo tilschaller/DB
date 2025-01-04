@@ -14,18 +14,22 @@ typedef struct {
 	void *content;
 } DB_COLUMN;
 
+//TODO: switch void* in structs to right pointer to struct
+
 typedef struct {
 	char name[DB_STRING_SIZE];
 	unsigned int num_column;
 	unsigned int num_row;
-	void *table;
+	void *table;  //DB_COLUMN*
 } DB_TABLE;
 
 typedef struct {
 	char name[DB_STRING_SIZE];
 	unsigned int num_table;
-	void *database;
+	void *database; //DB_TABLE*
 } DB;
+
+//
 
 typedef struct {
 	unsigned int num_db;
@@ -39,9 +43,9 @@ typedef struct {
 
 //name maximally 10 char long
 void createDatabase(char name[DB_STRING_SIZE]);
-void deleteDatabase(DB* db);
+//void deleteDatabase(DB* db);
 void createTable(DB* db, char name[DB_STRING_SIZE], unsigned int num_column, unsigned int num_row, DB_TYPE types[0]);
-void deleteTable(DB* db, char name[DB_STRING_SIZE]);
+//void deleteTable(DB* db, char name[DB_STRING_SIZE]);
 
 DB* getDB(char name[DB_STRING_SIZE]);
 DB_TABLE* getTable(DB* db, char name[DB_STRING_SIZE]);

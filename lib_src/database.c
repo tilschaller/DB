@@ -19,7 +19,7 @@ void createDatabase(char name[DB_STRING_SIZE]) {
 	memcpy(db_ptr->name, name, DB_STRING_SIZE);
 }
 
-void deleteDatabase(DB* db) {}
+//void deleteDatabase(DB* db) {}
 
 void createTable(DB* db, char name[DB_STRING_SIZE], unsigned int num_column, unsigned int num_row, DB_TYPE types[0]) {
 	if (db==0) {return;}
@@ -42,7 +42,7 @@ void createTable(DB* db, char name[DB_STRING_SIZE], unsigned int num_column, uns
 	}
 }
 
-void deleteTable(DB* db, char name[DB_STRING_SIZE]) {}
+//void deleteTable(DB* db, char name[DB_STRING_SIZE]) {}
 
 DB* getDB(char name[DB_STRING_SIZE]) {
 	for (int i = 0; i < state.num_db; i++) {
