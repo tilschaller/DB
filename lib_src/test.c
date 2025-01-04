@@ -8,26 +8,35 @@ int main(int argc, char *argv[]) {
 	createTable(getDB("Database 1"), "Table Test", 1, 2, type);
 	addColumn(getTable(getDB("Database 1"), "Table Test"), DB_TYPE_BOOLEAN, -1);
 
-	static const int test_i = 696969;
-	static const bool test_b = true;
-	
+	int test_i = 696969;
+	bool test_b = true;
+
 	addContent(getTable(getDB("Database 1"), "Table Test"), 1, 0, &test_i);
 	addContent(getTable(getDB("Database 1"), "Table Test"), 0, 0, &test_b);
 
 	DB_TABLE* table = getTable(getDB("Database 1"), "Table Test");
 
 	DB_CONTENT_RET content = {0};
+
 	content = getContent(getTable(getDB("Database 1"), "Table Test"), 1, 0);
 
 	int output_i = *(int*)content.content;
 
-	printf("\n%d\n", output_i);
+	printf("%d\n", output_i);
 
 	content = getContent(getTable(getDB("Database 1"), "Table Test"), 0, 0);
 
 	bool output_b = *(bool*)content.content;
 
-	printf("\n%d\n", output_b);
+	printf("%d\n", output_b);
+
+	remColumn(table, 1);
+	deleteTable(getDB("Database 1"), table);
+	deleteDatabase(getDB("Database 1"));
+
+	//TODO: add more tests
+
+	printf("End END end ente gut alles gut\n");
 
 	return 0;
 }

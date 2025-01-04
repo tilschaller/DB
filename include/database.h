@@ -4,9 +4,9 @@
 #define DB_STRING_SIZE 10
 
 typedef enum {
-	DB_TYPE_STRING = DB_STRING_SIZE,
-	DB_TYPE_BOOLEAN = sizeof(_Bool),
-	DB_TYPE_INTEGER = sizeof(int),
+	DB_TYPE_STRING = 0,
+	DB_TYPE_BOOLEAN = 1,
+	DB_TYPE_INTEGER = 2,
 } DB_TYPE;
 
 typedef struct {
@@ -41,11 +41,11 @@ typedef struct {
 	void* content;
 } DB_CONTENT_RET;
 
-//name maximally 10 char long
+//names maximally 10 chars long
 void createDatabase(char name[DB_STRING_SIZE]);
-//void deleteDatabase(DB* db);
+void deleteDatabase(DB* db);
 void createTable(DB* db, char name[DB_STRING_SIZE], unsigned int num_column, unsigned int num_row, DB_TYPE types[0]);
-//void deleteTable(DB* db, char name[DB_STRING_SIZE]);
+void deleteTable(DB* db, DB_TABLE* table);
 
 DB* getDB(char name[DB_STRING_SIZE]);
 DB_TABLE* getTable(DB* db, char name[DB_STRING_SIZE]);

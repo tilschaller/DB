@@ -1,5 +1,5 @@
 test:
-	gcc lib_src/test.c lib_src/database.c -o build/test.exe -static -g
+	gcc lib_src/test.c lib_src/database.c -o build/test.exe -static -ggdb3
 	./build/test.exe
 
 database:
