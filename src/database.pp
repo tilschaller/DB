@@ -9,7 +9,7 @@ interface
     database.h
 }
 
-{$linklib database.a}
+{$linklib libdatabase.a}
 
 {$ifdef WINDOWS}
 {$linklib libmsvcrt.a}

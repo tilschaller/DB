@@ -9,12 +9,12 @@ interface
     database.h
 }
 
-{$linklib database/database.a}
+{$linklib database.a}
 
 {$ifdef WINDOWS}
-{$linklib deps/libmsvcrt.a}
-{$linklib deps/libmingw32.a}
-{$linklib deps/libgcc.a}
+{$linklib libmsvcrt.a}
+{$linklib libmingw32.a}
+{$linklib libgcc.a}
 {$endif}
 
 {$IFDEF FPC}
