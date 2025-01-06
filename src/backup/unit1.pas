@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Grids,
   ActnList, Menus, database,
-  unit2, unit3;
+  unit2, unit3, names;
 
 type
 
@@ -39,7 +39,6 @@ type
   private
 
   public
-    db_names: array[0..9] of array[0..9] of char;
 
   end;
 
@@ -54,9 +53,9 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 var
-   zero: array[0..9] of char;
+   i: integer;
 begin
-  for zero in db_names do zero:='          ';
+  for i:=0 to 9 do db_names[i]:='          ';
 end;
 
 procedure TForm1.MenuItem3Click(Sender: TObject);

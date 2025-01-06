@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Grids,
   ActnList, Menus, database,
-  unit2, unit3;
+  unit2, unit3, unit4;
 
 type
 
@@ -39,7 +39,6 @@ type
   private
 
   public
-    db_names: array[0..9] of array[0..9] of char;
 
   end;
 
