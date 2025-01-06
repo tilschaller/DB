@@ -5,17 +5,37 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, database;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Grids,
+  ActnList, Menus, database,
+  unit2, unit3;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
-    Button1: TButton;
     Label1: TLabel;
     Label2: TLabel;
-    procedure Button1Click(Sender: TObject);
+    Label3: TLabel;
+    Label4: TLabel;
+    MainMenu1: TMainMenu;
+    MenuItem1: TMenuItem;
+    MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
+    MenuItem13: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
+    StringGrid1: TStringGrid;
+    procedure FormCreate(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem5Click(Sender: TObject);
   private
 
   public
@@ -31,29 +51,19 @@ implementation
 
 { TForm1 }
 
-procedure TForm1.Button1Click(Sender: TObject);
-var
-  types: array[0..1] of DB_TYPE;
-  content: integer;
-  op: ^Integer;
-  output: integer;
+procedure TForm1.FormCreate(Sender: TObject);
 begin
-  createDatabase('Database 1');
-  types[0] := DB_TYPE_INTEGER;
-  createTable(getDB('Database 1'), 'Test Table', 1, 2, types);
-  content := 696969;
-  addContent(getTable(getDB('Database 1'), 'Test Table'), 0, 0, @content);
-  content := 12345;
-  addContent(getTable(getDB('Database 1'), 'Test Table'), 0, 1, @content);
 
-  op:= getContent(getTable(getDB('Database 1'), 'Test Table'), 0, 0).content;
-  output:=op^;
-  Label1.Caption:=inttostr(output);
+end;
 
-  op:= getContent(getTable(getDB('Database 1'), 'Test Table'), 0, 1).content;
-  output:=op^;
-  Label2.Caption:=inttostr(output);
+procedure TForm1.MenuItem3Click(Sender: TObject);
+begin
+  form2.Show();
+end;
 
+procedure TForm1.MenuItem5Click(Sender: TObject);
+begin
+  form3.show();
 end;
 
 end.

@@ -1,33 +1,92 @@
 object Form1: TForm1
-  Left = 281
-  Height = 240
-  Top = 117
-  Width = 320
-  Caption = 'Form1'
-  ClientHeight = 240
-  ClientWidth = 320
+  Left = 125
+  Height = 503
+  Top = 103
+  Width = 982
+  Caption = 'Database'
+  ClientHeight = 503
+  ClientWidth = 982
+  Menu = MainMenu1
+  OnCreate = FormCreate
   LCLVersion = '3.6.0.0'
-  object Button1: TButton
+  object StringGrid1: TStringGrid
     Left = 8
-    Height = 25
-    Top = 8
-    Width = 75
-    Caption = 'Button1'
+    Height = 478
+    Top = 18
+    Width = 968
     TabOrder = 0
-    OnClick = Button1Click
   end
   object Label1: TLabel
     Left = 8
     Height = 15
-    Top = 40
-    Width = 34
-    Caption = 'Label1'
+    Top = 0
+    Width = 51
+    Caption = 'Database:'
   end
   object Label2: TLabel
-    Left = 8
+    Left = 368
     Height = 15
-    Top = 64
-    Width = 34
-    Caption = 'Label2'
+    Top = 0
+    Width = 30
+    Caption = 'Tabel:'
+  end
+  object Label4: TLabel
+    Left = 664
+    Height = 15
+    Top = 0
+    Width = 23
+    Caption = 'Size:'
+  end
+  object Label3: TLabel
+    Left = 808
+    Height = 15
+    Top = 0
+    Width = 28
+    Caption = 'Total:'
+  end
+  object MainMenu1: TMainMenu
+    Left = 936
+    Top = 8
+    object MenuItem1: TMenuItem
+      Caption = 'Database'
+      object MenuItem3: TMenuItem
+        Caption = 'Create Database'
+        OnClick = MenuItem3Click
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'Delete Database'
+        OnClick = MenuItem5Click
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Table'
+      object MenuItem6: TMenuItem
+        Caption = 'Create Table'
+      end
+      object MenuItem7: TMenuItem
+        Caption = 'Delete Table'
+      end
+      object MenuItem8: TMenuItem
+        Caption = 'Load Table'
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Column'
+      object MenuItem9: TMenuItem
+        Caption = 'Add Column'
+      end
+      object MenuItem10: TMenuItem
+        Caption = 'Remove Column'
+      end
+    end
+    object MenuItem11: TMenuItem
+      Caption = 'Content'
+      object MenuItem12: TMenuItem
+        Caption = 'Add Content'
+      end
+      object MenuItem13: TMenuItem
+        Caption = 'Remove Content'
+      end
+    end
   end
 end
