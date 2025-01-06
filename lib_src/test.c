@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
 	addContent(getTable(getDB("Database 1"), "Table Test"), 0, 0, &test_b);
 
 	DB_TABLE* table = getTable(getDB("Database 1"), "Table Test");
+	DB* db = getDB("Database 1");
 
 	DB_CONTENT_RET content = {0};
 
