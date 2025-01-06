@@ -5,7 +5,7 @@ unit Unit2;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, database;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, database, unit1;
 
 type
 
@@ -39,6 +39,7 @@ begin
         for i:=0 to 9 do begin
            db_name[i] := Edit1.text[i];
         end;
+        //TODO: add name to form1.db_names, if its free if no string is free print in edit.
         createDatabase(db_name);
         form2.Hide();
       end;

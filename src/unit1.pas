@@ -39,6 +39,7 @@ type
   private
 
   public
+    db_names: array[0..9] of array[0..9] of char;
 
   end;
 
@@ -52,8 +53,10 @@ implementation
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
+var
+   i: integer;
 begin
-
+  for i:=0 to 9 do db_names[i]:='          ';
 end;
 
 procedure TForm1.MenuItem3Click(Sender: TObject);

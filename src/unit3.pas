@@ -40,6 +40,7 @@ begin
            db_name[i] := Edit1.text[i];
         end;
         deleteDatabase(getDB(db_name));
+        //TODO: remove name form form1.db_names: db_name[x]:='          ';
         form3.Hide();
       end;
 end;

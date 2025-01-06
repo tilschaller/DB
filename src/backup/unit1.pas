@@ -16,6 +16,7 @@ type
   TForm1 = class(TForm)
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
     Label4: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
@@ -38,6 +39,7 @@ type
   private
 
   public
+    db_names: array[0..9] of array[0..9] of char;
 
   end;
 
@@ -51,8 +53,10 @@ implementation
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
+var
+   zero: array[0..9] of char;
 begin
-
+  for zero in db_names do zero:='          ';
 end;
 
 procedure TForm1.MenuItem3Click(Sender: TObject);
