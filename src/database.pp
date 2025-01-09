@@ -56,7 +56,7 @@ interface
     PDB  = ^DB;
   { }
 
-    STATE = record
+    DB_STATE = record
         num_db : dword;
         top : pointer;
       end;
@@ -66,6 +66,8 @@ interface
         content : pointer;
       end;
   {names maximally 10 chars long }
+
+  procedure getName(header:pointer; name: array of char);cdecl;external;
 
   procedure createDatabase(name:array of char);cdecl;external;
 

@@ -17,6 +17,10 @@ size_t getSize(DB_TYPE type) {
 	}
 }
 
+void getName(void *header, char name[DB_STRING_SIZE]) {
+	memcpy(name, ((DB*)header)->name, DB_STRING_SIZE);
+
+}
 void createDatabase(char name[DB_STRING_SIZE]) {
 	if (state.num_db == 0) {
 		state.top = malloc(sizeof(DB));

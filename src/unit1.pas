@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Grids,
-  ActnList, Menus, database,
-  unit2, unit3, unit4;
+  ActnList, Menus,
+  unit2, unit3, unit5;
 
 type
 
@@ -33,9 +33,9 @@ type
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     StringGrid1: TStringGrid;
-    procedure FormCreate(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
+    procedure MenuItem6Click(Sender: TObject);
   private
 
   public
@@ -51,21 +51,22 @@ implementation
 
 { TForm1 }
 
-procedure TForm1.FormCreate(Sender: TObject);
-var
-   i: integer;
-begin
-  for i:=0 to 9 do db_names[i]:='          ';
-end;
-
 procedure TForm1.MenuItem3Click(Sender: TObject);
 begin
+  {create DB}
   form2.Show();
 end;
 
 procedure TForm1.MenuItem5Click(Sender: TObject);
 begin
+  {delete DB}
   form3.show();
+end;
+
+procedure TForm1.MenuItem6Click(Sender: TObject);
+begin
+ {create Table}
+ form5.show();
 end;
 
 end.

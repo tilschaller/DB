@@ -41,14 +41,13 @@ begin
       for i:=0 to 9 do begin
           db_name[i] := Edit1.text[i];
       end;
-      for i:=0 to 9 do begin
-          if db_names[i] = db_name then db_names[i]:='          ';
-          if i=9 then begin
-            Edit1.text:= 'Database does not exist';
-            exit;
-          end;
+      if getDB(db_name) = nil then begin
+        Edit1.text:= 'Database with this name does not exist';
+        exit;
       end;
+      edit1.text:=inttostr(ptrint(getDB(db_name)));
       deleteDatabase(getDB(db_name));
+      {form3.hide();}
 end;
 
 end.

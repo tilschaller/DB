@@ -1,0 +1,34 @@
+object Form5: TForm5
+  Left = 399
+  Height = 82
+  Top = 151
+  Width = 320
+  Caption = 'Form5'
+  ClientHeight = 82
+  ClientWidth = 320
+  LCLVersion = '3.6.0.0'
+  object Edit1: TEdit
+    Left = 8
+    Height = 23
+    Top = 0
+    Width = 304
+    TabOrder = 0
+    Text = 'Name of DB (10c)'
+  end
+  object Edit2: TEdit
+    Left = 8
+    Height = 23
+    Top = 24
+    Width = 304
+    TabOrder = 1
+    Text = 'Name of table (10c)'
+  end
+  object Button1: TButton
+    Left = 8
+    Height = 25
+    Top = 48
+    Width = 304
+    Caption = 'Create Table'
+    TabOrder = 2
+  end
+end

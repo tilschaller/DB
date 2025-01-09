@@ -1,13 +1,12 @@
 object Form1: TForm1
-  Left = 125
-  Height = 503
-  Top = 103
+  Left = 116
+  Height = 499
+  Top = 148
   Width = 982
   Caption = 'Database'
-  ClientHeight = 503
+  ClientHeight = 499
   ClientWidth = 982
   Menu = MainMenu1
-  OnCreate = FormCreate
   LCLVersion = '3.6.0.0'
   object StringGrid1: TStringGrid
     Left = 8
@@ -62,6 +61,7 @@ object Form1: TForm1
       Caption = 'Table'
       object MenuItem6: TMenuItem
         Caption = 'Create Table'
+        OnClick = MenuItem6Click
       end
       object MenuItem7: TMenuItem
         Caption = 'Delete Table'
