@@ -45,9 +45,8 @@ begin
         Edit1.text:= 'Database with this name does not exist';
         exit;
       end;
-      edit1.text:=inttostr(ptrint(getDB(db_name)));
       deleteDatabase(getDB(db_name));
-      {form3.hide();}
+      form3.hide();
 end;
 
 end.

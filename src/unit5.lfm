@@ -1,10 +1,10 @@
 object Form5: TForm5
-  Left = 399
-  Height = 82
-  Top = 151
+  Left = 305
+  Height = 112
+  Top = 211
   Width = 320
-  Caption = 'Form5'
-  ClientHeight = 82
+  Caption = 'Create Table'
+  ClientHeight = 112
   ClientWidth = 320
   LCLVersion = '3.6.0.0'
   object Edit1: TEdit
@@ -26,9 +26,30 @@ object Form5: TForm5
   object Button1: TButton
     Left = 8
     Height = 25
-    Top = 48
+    Top = 80
     Width = 304
     Caption = 'Create Table'
     TabOrder = 2
+    OnClick = Button1Click
+  end
+  object Column: TSpinEdit
+    Left = 8
+    Height = 23
+    Top = 48
+    Width = 146
+    MaxValue = 1000
+    MinValue = 1
+    TabOrder = 3
+    Value = 1
+  end
+  object Row: TSpinEdit
+    Left = 160
+    Height = 23
+    Top = 48
+    Width = 154
+    MaxValue = 1000
+    MinValue = 1
+    TabOrder = 4
+    Value = 1
   end
 end

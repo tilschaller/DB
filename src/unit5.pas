@@ -5,7 +5,8 @@ unit Unit5;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Spin,
+  database, unit4;
 
 type
 
@@ -15,6 +16,9 @@ type
     Button1: TButton;
     Edit1: TEdit;
     Edit2: TEdit;
+    Column: TSpinEdit;
+    Row: TSpinEdit;
+    procedure Button1Click(Sender: TObject);
   private
 
   public
@@ -29,6 +33,45 @@ implementation
 {$R *.lfm}
 
 { TForm5 }
+
+procedure TForm5.Button1Click(Sender: TObject);
+var db_name: array[0..9] of char;
+    table_name: array[0..9] of char;
+    i: integer;
+    types: array of DB_TYPE;
+begin
+      if Length(Edit1.text) <> 10 then begin
+        Edit1.Text := 'Name not right length';
+        exit;
+      end;
+      if Length(Edit2.text) <> 10 then begin
+         Edit2.text := 'Name not rigth length';
+         exit;
+      end;
+      for i:=0 to 9 do begin
+          db_name[i] := Edit1.text[i];
+          table_name[i] := Edit2.text[i];
+      end;
+      if getDB(db_name) = nil then begin
+        Edit1.text:= 'Database with this name does not exist';
+        exit;
+      end;
+      if getTable(getDB(db_name), table_name) <> nil then begin
+        Edit2.text:= 'Table with this name already exists';
+        exit;
+      end;
+      setlength(types, column.value);
+      for i:=0 to column.value -1 do begin
+          form4.show();
+          while form4.visible do begin
+                Application.ProcessMessages;
+          end;
+          types[i] := c_type;
+          //TODO: output error if no type was selected;
+      end;
+      createTable(getDB(db_name), table_name, column.value, row.value, types);
+      form5.hide();
+end;
 
 end.
 
