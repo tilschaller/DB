@@ -39,7 +39,7 @@ begin
         exit;
       end;
       for i:=0 to 9 do begin
-          db_name[i] := Edit1.text[i];
+          db_name[i] := Edit1.text[i+1];
       end;
       if getDB(db_name) = nil then begin
         Edit1.text:= 'Database with this name does not exist';

@@ -5,7 +5,7 @@ test:
 	./build/test.exe
 
 database:
-	gcc -c lib_src/database.c -o build/database.o
+	gcc -c lib_src/database.c -o build/database.o -ggdb
 	ar cr database/database.a build/database.o
 	rm -f src/libdatabase.a
 	mv database/database.a src/libdatabase.a
