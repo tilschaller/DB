@@ -17,6 +17,10 @@ type
     Edit1: TEdit;
     Edit2: TEdit;
     Column: TSpinEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     Row: TSpinEdit;
     procedure Button1Click(Sender: TObject);
   private
@@ -63,6 +67,7 @@ begin
       setlength(types, column.value);
       for i:=0 to column.value -1 do begin
           form4.show();
+          form4.Caption:= 'Select Type for Column' + inttostr(i+1);
           while form4.visible do begin
                 Application.ProcessMessages;
           end;

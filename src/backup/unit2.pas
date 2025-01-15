@@ -14,10 +14,13 @@ type
   TForm2 = class(TForm)
     Button1: TButton;
     Edit1: TEdit;
+    Label1: TLabel;
     procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
 
   public
+    NameDB: string;
 
   end;
 
@@ -33,20 +36,30 @@ implementation
 
 procedure TForm2.Button1Click(Sender: TObject);
 var db_name: array[0..9] of char;
-    i: integer;
+    i, n: integer;
 begin
       if Length(Edit1.text) <> 10 then begin
         Edit1.Text := 'Name not right length';
         exit;
       end;
       for i:=0 to 9 do begin
-          db_name[i] := Edit1.text[i];
+          db_name[i] := Edit1.text[i+1];
       end;
       if getDB(db_name) <> nil then begin
           Edit1.Text := 'Database with this name already exists';
+          exit;
       end;
       createDatabase(db_name);
       form2.hide();
+      for n := 0 to 9 do
+      begin
+          NameDB[n] := db_name[n-1];
+      end;
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+  NameDB:='XXXXXXXXXX';
 end;
 
 end.

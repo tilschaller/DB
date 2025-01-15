@@ -17,6 +17,10 @@ type
     Edit1: TEdit;
     Edit2: TEdit;
     Column: TSpinEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     Row: TSpinEdit;
     procedure Button1Click(Sender: TObject);
   private
@@ -49,19 +53,21 @@ begin
          exit;
       end;
       for i:=0 to 9 do begin
-          db_name[i] := Edit1.text[i];
-          table_name[i] := Edit2.text[i];
+          db_name[i] := Edit1.text[i+1];
+          table_name[i] := Edit2.text[i+1];
       end;
       if getDB(db_name) = nil then begin
         Edit1.text:= 'Database with this name does not exist';
         exit;
       end;
       if getTable(getDB(db_name), table_name) <> nil then begin
-        Edit2.text:= 'Table with this name already exists'
+        Edit2.text:= 'Table with this name already exists';
+        exit;
       end;
       setlength(types, column.value);
       for i:=0 to column.value -1 do begin
           form4.show();
+          form4.Caption:= 'Select Type for Column' + inttostr(column.value);
           while form4.visible do begin
                 Application.ProcessMessages;
           end;

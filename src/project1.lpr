@@ -10,7 +10,7 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, unit1, database, unit2, unit3, unit5, unit4;
+  Forms, unit1, database, unit2, unit3, unit5, unit4, unit6;
 
 {$R *.res}
 
@@ -23,6 +23,7 @@ begin
   Application.CreateForm(TForm3, Form3);
   Application.CreateForm(TForm5, Form5);
   Application.CreateForm(TForm4, Form4);
+  Application.CreateForm(TForm6, Form6);
   Application.Run;
 end.
 
