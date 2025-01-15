@@ -12,7 +12,6 @@ typedef enum {
 typedef struct {
 	DB_TYPE type;
 	void *content;
-	char name[DB_STRING_SIZE];
 } DB_COLUMN;
 
 //TODO: switch void* in structs to right pointer to struct
@@ -51,7 +50,7 @@ void deleteTable(DB* db, DB_TABLE* table);
 DB* getDB(char name[DB_STRING_SIZE]);
 DB_TABLE* getTable(DB* db, char name[DB_STRING_SIZE]);
 
-void addColumn(DB_TABLE* table, DB_TYPE type,int prev_column, char name[DB_STRING_SIZE]);
+void addColumn(DB_TABLE* table, DB_TYPE type,int prev_column);
 void remColumn(DB_TABLE* table, unsigned int column);
 //void addRow(DB_TABLE* table,int prev_row);
 //void remRow(DB_TABLE* table, unsigned int row);

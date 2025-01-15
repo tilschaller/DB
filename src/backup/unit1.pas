@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Grids,
   ActnList, Menus,
-  unit2, unit3, unit5, unit6, unit7, unit8;
+  unit2, unit3, unit5, unit6, unit7, unit8, unit9;
 
 type
 
@@ -37,6 +37,7 @@ type
     StringGrid1: TStringGrid;
     procedure MenuItem10Click(Sender: TObject);
     procedure MenuItem12Click(Sender: TObject);
+    procedure MenuItem13Click(Sender: TObject);
     procedure MenuItem14Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
@@ -81,6 +82,12 @@ procedure TForm1.MenuItem12Click(Sender: TObject);
 begin
   //Öffne Form zum Einfügen von Inhalt in eine Zelle
   Form6.show();
+end;
+
+procedure TForm1.MenuItem13Click(Sender: TObject);
+begin
+  //Öffne Form, um Content zu löschen
+  form10.show();
 end;
 
 procedure TForm1.MenuItem10Click(Sender: TObject);

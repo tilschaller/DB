@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 336
+  Left = 357
   Height = 606
-  Top = 104
+  Top = 43
   Width = 982
   Caption = 'Database'
   ClientHeight = 606
@@ -103,6 +103,7 @@ object Form1: TForm1
       end
       object MenuItem13: TMenuItem
         Caption = 'Remove Content'
+        OnClick = MenuItem13Click
       end
     end
   end

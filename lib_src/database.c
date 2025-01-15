@@ -80,6 +80,8 @@ void createTable(DB* db, char name[DB_STRING_SIZE], unsigned int num_column, uns
 	DB_TABLE* table_ptr = (DB_TABLE*)db->database + db->num_table;	/*Neuer Table-Pointer wird zum DB-Header hinzugefügt*/
 	db->num_table++;	/*Anzahl der Table im DB-Header wird um 1 erhöht*/
 
+	table_ptr->num_row = num_row;
+
 	memset(table_ptr, 0, sizeof(DB_TABLE));	/*Table wird mit 'Nullen' gefüllt*/
 
 	memcpy(table_ptr->name, name, DB_STRING_SIZE);	/*Tablename wird in Table-Header gespeichert*/
