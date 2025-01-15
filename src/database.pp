@@ -13,7 +13,8 @@ interface
 
 {$ifdef WINDOWS}
 {$linklib libmsvcrt.a}
-{$linklib libmingw32.a}
+//{$linklib libmingw32.a}
+//{$linklib libmingwex.a}
 {$linklib libgcc.a}
 {$endif}
 

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Grids,
   ActnList, Menus,
-  unit2, unit3, unit5, unit6;
+  unit2, unit3, unit5, unit6, unit7;
 
 type
 
@@ -41,6 +41,7 @@ type
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
+    procedure MenuItem7Click(Sender: TObject);
     procedure MenuItem8Click(Sender: TObject);
   private
 
@@ -90,6 +91,12 @@ procedure TForm1.MenuItem6Click(Sender: TObject);
 begin
  //Öffne Form zum erstellen eines neuen Tables
  form5.show();
+end;
+
+procedure TForm1.MenuItem7Click(Sender: TObject);
+begin
+  //Öffne Form zum löschen eines Tables
+  form7.show();
 end;
 
 procedure TForm1.MenuItem8Click(Sender: TObject);

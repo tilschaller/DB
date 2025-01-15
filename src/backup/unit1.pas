@@ -41,6 +41,7 @@ type
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
+    procedure MenuItem7Click(Sender: TObject);
     procedure MenuItem8Click(Sender: TObject);
   private
 
@@ -59,7 +60,7 @@ implementation
 
 procedure TForm1.MenuItem3Click(Sender: TObject);
 begin
-  {create DB}
+  //Öffne Form zum Erstellen einer Datenbank
   form2.Show();
 
 end;
@@ -76,19 +77,26 @@ end;
 
 procedure TForm1.MenuItem12Click(Sender: TObject);
 begin
-     Form6.show();
+  //Öffne Form zum Einfügen von Inhalt in eine Zelle
+  Form6.show();
 end;
 
 procedure TForm1.MenuItem5Click(Sender: TObject);
 begin
-  {delete DB}
+  //Öffne Form zum Löschen einer Datenbank
   form3.show();
 end;
 
 procedure TForm1.MenuItem6Click(Sender: TObject);
 begin
- {create Table}
+ //Öffne Form zum erstellen eines neuen Tables
  form5.show();
+end;
+
+procedure TForm1.MenuItem7Click(Sender: TObject);
+begin
+  //Öffne Form zum löschen eines Tables
+  form7.show();
 end;
 
 procedure TForm1.MenuItem8Click(Sender: TObject);
