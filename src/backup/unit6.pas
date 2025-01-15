@@ -104,7 +104,6 @@ end;
 
 procedure TForm6.Button2Click(Sender: TObject);
 begin
-
   choosenRow:= row.value;
   choosenColumn := column.value;
 
