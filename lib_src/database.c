@@ -82,6 +82,7 @@ void createTable(DB* db, char name[DB_STRING_SIZE], unsigned int num_column, uns
 
 	memset(table_ptr, 0, sizeof(DB_TABLE));	/*Table wird mit 'Nullen' gefüllt*/
 
+	table_ptr->num_row = num_row;	/*anzahl der Zeilen wird im Table-Header gespeichert*/
 	memcpy(table_ptr->name, name, DB_STRING_SIZE);	/*Tablename wird in Table-Header gespeichert*/
 
 	for (int i = 0; i < num_column; i++) {
@@ -134,7 +135,7 @@ DB_TABLE* getTable(DB* db, char name[DB_STRING_SIZE]) {
 }
 
 /*Spalte zum Table hinzufügen*/
-void addColumn(DB_TABLE* table, DB_TYPE type, int prev_column, char name[DB_STRING_SIZE]) {
+void addColumn(DB_TABLE* table, DB_TYPE type, int prev_column) {
 	if (table==0) {return;}	/*Wenn kein Table existiert, kann auch keine Spalte darin erstellt werden*/
 
 	if (table->num_column == 0) {
@@ -153,7 +154,6 @@ void addColumn(DB_TABLE* table, DB_TYPE type, int prev_column, char name[DB_STRI
 	memmove(column + 1, column, sizeof(DB_COLUMN) * (table->num_column - (prev_column + 2))); //does this work?	/**/
 
 	column->type = type;	/*Column-Type wird zugewiesen*/
-	memcpy(column->name, name, DB_STRING_SIZE);	/*Column-Name wird im Column-Header gespeichert*/
 	column->content = malloc(getSize(type) * table->num_row);	/*Speicher für Content wird reserviert*/
 }
 
@@ -230,5 +230,5 @@ void* getColumnContent(DB_TABLE* table, unsigned int column) {
 	if (table==0) {return 0;}	/*Wenn kein Table existiert, kann es keinen Inhalt einer Spalte geben*/
 
 	DB_COLUMN* column_struct = (DB_COLUMN*)table->table + column;	/*Richtige Spalte wird ausgewählt*/
-	return column_struct->content;	/*Inhalt des Spalten-Struct wird zurückgegeben*/
+	return column_struct->content;	/*Pointer zum Inhalt der Spalte wird zurückgegeben*/
 }

@@ -20,7 +20,6 @@ type
   private
 
   public
-    NameDB: string;
 
   end;
 
@@ -51,15 +50,12 @@ begin
       end;
       createDatabase(db_name);
       form2.hide();
-      for n := 0 to 9 do
-      begin
-          NameDB[n] := db_name[n-1];
-      end;
+
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);
 begin
-  NameDB:='XXXXXXXXXX';
+
 end;
 
 end.

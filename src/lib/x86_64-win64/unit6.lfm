@@ -1,11 +1,11 @@
 object Form6: TForm6
-  Left = 305
-  Height = 235
-  Top = 574
-  Width = 605
+  Left = 301
+  Height = 285
+  Top = 645
+  Width = 412
   Caption = 'Add Content'
-  ClientHeight = 235
-  ClientWidth = 605
+  ClientHeight = 285
+  ClientWidth = 412
   OnCreate = FormCreate
   LCLVersion = '3.6.0.0'
   object Label4: TLabel
@@ -119,6 +119,22 @@ object Form6: TForm6
       TabOrder = 1
       OnClick = Button3Click
     end
+    object SpinEdit1: TSpinEdit
+      Left = 8
+      Height = 23
+      Top = 24
+      Width = 114
+      TabOrder = 2
+    end
+    object ToggleBox1: TToggleBox
+      Left = 8
+      Height = 25
+      Top = 24
+      Width = 114
+      Caption = 'False'
+      TabOrder = 3
+      OnChange = ToggleBox1Change
+    end
   end
   object Label6: TLabel
     Left = 216
@@ -143,5 +159,14 @@ object Form6: TForm6
     Caption = 'Choose Table'
     TabOrder = 5
     OnClick = Button4Click
+  end
+  object Button5: TButton
+    Left = 8
+    Height = 25
+    Top = 224
+    Width = 393
+    Caption = 'Ready'
+    TabOrder = 6
+    OnClick = Button5Click
   end
 end

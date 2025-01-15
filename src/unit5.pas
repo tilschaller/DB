@@ -67,7 +67,7 @@ begin
       setlength(types, column.value);
       for i:=0 to column.value -1 do begin
           form4.show();
-          form4.Caption:= 'Select Type for Column' + inttostr(i+1);
+          form4.Caption:= 'Select Type for Column ' + inttostr(i);
           while form4.visible do begin
                 Application.ProcessMessages;
           end;
