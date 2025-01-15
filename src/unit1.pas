@@ -21,8 +21,6 @@ type
     GroupBox1: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
@@ -119,15 +117,14 @@ end;
 //Table
 procedure TForm1.Button1Click(Sender: TObject);
 var
-  i, n:integer;
+  i:integer;
   colin, rowin: integer;
   CONRET: DB_CONTENT_RET;
   intpntderef: ^integer;
-  strpntderef: array of char;
+  chrptrderef: ^char;
+  strcontent: array[0..9] of char;
   bolpntderef: ^Boolean;
-  strpnt: string[10];
 begin
-  setlength(strpntderef,10);
   for i:=0 to 9 do
   begin
     TBLName[i] := Edit1.Text[i+1];
@@ -148,26 +145,28 @@ begin
   StringGrid1.ColCount:= loadTablePntr^.num_column +1;
   StringGrid1.RowCount:= loadTablePntr^.num_row +1;
 
-  for colin:=0 to loadTablePntr^.num_column do
+  for colin:=0 to loadTablePntr^.num_column - 1 do
   begin
-    for rowin:= 0 to loadTablePntr^.num_row do
+    for rowin:= 0 to loadTablePntr^.num_row - 1 do
     begin
       CONRET := getContent(loadTablePntr, colin, rowin);
       Case CONRET._type of
            DB_TYPE_INTEGER : begin
              intpntderef:= CONRET.content;
-             StringGrid1.Cells[colin, rowin] := inttostr(intpntderef^);
+             StringGrid1.Cells[colin + 1, rowin + 1] := inttostr(intpntderef^);
            end;
            DB_TYPE_STRING : begin
-             strpntderef:= CONRET.content;
+             chrptrderef := CONRET.content;
              for i:= 0 to 9 do
              begin
-                strpnt[i + 1] := strpntderef[i];
+                strcontent[i] := chrptrderef[i];
              end;
-             StringGrid1.Cells[colin, rowin] := strpnt;
+             StringGrid1.Cells[colin + 1, rowin + 1] := strcontent;
            end;
            DB_TYPE_BOOLEAN : begin
-
+             bolpntderef:=CONRET.content;
+             if bolpntderef^=false then StringGrid1.Cells[colin + 1, rowin + 1] := 'False'
+             else  StringGrid1.Cells[colin + 1, rowin + 1] := 'True';
            end;
   end;
     end;

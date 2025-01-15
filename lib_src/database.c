@@ -157,6 +157,7 @@ void addColumn(DB_TABLE* table, DB_TYPE type, int prev_column) {
 
 	column->type = type;	/*Column-Type wird zugewiesen*/
 	column->content = malloc(getSize(type) * table->num_row);	/*Speicher f�r Content wird reserviert*/
+	memset(column->content, 0, getSize(type) * table->num_row);
 }
 
 /*L�schen einer Spalte*/
