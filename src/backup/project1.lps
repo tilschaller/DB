@@ -20,11 +20,10 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="160"/>
-        <CursorPos X="29" Y="170"/>
+        <TopLine Value="200"/>
+        <CursorPos X="5" Y="210"/>
         <UsageCount Value="43"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="unit2.pas"/>
@@ -123,11 +122,10 @@
       </Unit>
       <Unit>
         <Filename Value="database.pp"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="85"/>
         <CursorPos Y="7"/>
         <UsageCount Value="18"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\inc\mathh.inc"/>
@@ -178,7 +176,7 @@
         <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="14">
+    <JumpHistory HistoryIndex="17">
       <Position>
         <Filename Value="unit1.pas"/>
         <Caret Line="122" Column="38" TopLine="108"/>
@@ -238,6 +236,18 @@
       <Position>
         <Filename Value="unit1.pas"/>
         <Caret Line="171" Column="70" TopLine="158"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="123" Column="62" TopLine="108"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="122" Column="62" TopLine="107"/>
+      </Position>
+      <Position>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="121" Column="62" TopLine="106"/>
       </Position>
     </JumpHistory>
     <RunParams>

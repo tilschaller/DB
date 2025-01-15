@@ -172,14 +172,14 @@ begin
      exit
   end;
   DB_TYPE_STRING : begin
-     for i := 0 to 9 do
-     begin
-        strContPntr[i] := Edit2.Text[i+1];
-     end;
      if Length(Edit2.text) <> 10 then begin
         Edit2.Text := 'Name not right length';
         exit;
       end;
+     for i := 0 to 9 do
+     begin
+        strContPntr[i] := Edit2.Text[i+1];
+     end;
      addContent(TBL_PNTR, choosenColumn, choosenRow, @strContPntr);
      exit
   end;

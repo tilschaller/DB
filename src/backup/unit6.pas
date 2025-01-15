@@ -119,7 +119,7 @@ begin
      end;
 
      column.MaxValue:= TBL_PNTR^.num_column - 1;
-     row.MaxValue := TBL_PNTR^.num_row -1;
+     row.MaxValue := TBL_PNTR^.num_row - 1;
 
      GroupBox1.Show;
 end;
