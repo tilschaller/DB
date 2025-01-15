@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Grids,
-  ActnList, Menus, database,
-  unit2, unit3, unit5, unit6, unit7, unit8, unit9;
+  ActnList, Menus,database,
+  unit2, unit3, unit5, unit6, unit7, unit8, unit9, unit10;
 
 type
 
@@ -29,16 +29,17 @@ type
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
-    MenuItem14: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
-    MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     StringGrid1: TStringGrid;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure MenuItem10Click(Sender: TObject);
     procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem13Click(Sender: TObject);
     procedure MenuItem14Click(Sender: TObject);
@@ -88,6 +89,103 @@ procedure TForm1.MenuItem12Click(Sender: TObject);
 begin
   //Öffne Form zum Einfügen von Inhalt in eine Zelle
   Form6.show();
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  i:integer;
+begin
+
+
+  if Length(Edit2.text) <> 10 then begin
+        Edit2.Text := 'Name not right length';
+        exit;
+      end;
+
+  for i := 0 to 9 do
+  begin
+    DBName[i] := Edit2.Text[i+1];
+  end;
+
+  DBpntr := getDB(DBName);
+
+  if DBpntr = nil then begin
+        Edit2.text:= 'Database with this name does not exist';
+        exit;
+      end;
+end;
+
+
+//Table
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  i, n:integer;
+  colin, rowin: integer;
+  CONRET: DB_CONTENT_RET;
+  intpntderef: ^integer;
+  strpntderef: array of char;
+  bolpntderef: ^Boolean;
+  strpnt: string[10];
+begin
+  setlength(strpntderef,10);
+  for i:=0 to 9 do
+  begin
+    TBLName[i] := Edit1.Text[i+1];
+  end;
+
+  if Length(Edit1.text) <> 10 then begin
+        Edit1.Text := 'Name not right length';
+        exit;
+      end;
+  loadTablePntr := getTable(DBpntr, TBLName);
+
+  if loadTablePntr = nil then
+     begin
+           Edit1.Text:= 'Table with this name does not exist';
+           exit;
+     end;
+
+  StringGrid1.ColCount:= loadTablePntr^.num_column +1;
+  StringGrid1.RowCount:= loadTablePntr^.num_row +1;
+
+  for colin:=0 to loadTablePntr^.num_column do
+  begin
+    for rowin:= 0 to loadTablePntr^.num_row do
+    begin
+      CONRET := getContent(loadTablePntr, colin, rowin);
+      Case CONRET._type of
+           DB_TYPE_INTEGER : begin
+             intpntderef:= CONRET.content;
+             StringGrid1.Cells[colin+1, rowin+1] := inttostr(intpntderef^);
+           end;
+           DB_TYPE_STRING : begin
+             strpntderef:= CONRET.content;
+             for i:= 0 to 9 do
+             begin
+                strpnt[i + 1] := strpntderef[i];
+             end;
+             StringGrid1.Cells[colin+1, rowin+1] := strpnt;
+           end;
+           DB_TYPE_BOOLEAN : begin
+
+           end;
+  end;
+    end;
+  end;
+end;
+
+
+
+procedure TForm1.MenuItem13Click(Sender: TObject);
+begin
+  //Öffne Form, um Content zu löschen
+  form10.show();
+end;
+
+procedure TForm1.MenuItem10Click(Sender: TObject);
+begin
+  //Öffne Form zum löschen von Column
+  form9.show();
 end;
 
 procedure TForm1.MenuItem5Click(Sender: TObject);

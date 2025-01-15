@@ -92,7 +92,7 @@ void createTable(DB* db, char name[DB_STRING_SIZE], unsigned int num_column, uns
 	}
 }
 
-/*L�schen eines Tables*/
+/*Löschen eines Tables*/
 void deleteTable(DB* db, DB_TABLE* table) {
 	if (table==0 || db == 0) {return;}	/*Wenn kein Table existiert, kann keiner gel�scht werden*/
 

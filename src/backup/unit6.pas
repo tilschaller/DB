@@ -72,6 +72,8 @@ begin
   else Togglebox1.caption := 'False';
 end;
 
+
+//DB
 procedure TForm6.Button1Click(Sender: TObject);
 var
   i:integer;
@@ -80,7 +82,10 @@ begin
   begin
     dbName[i] := Edit1.Text[i+1];
   end;
-
+  if Length(Edit1.text) <> 10 then begin
+        Edit1.Text := 'Name not right length';
+        exit;
+      end;
   DB_PNTR := getDB(dbName);
 
   if DB_PNTR = nil then begin
@@ -89,6 +94,8 @@ begin
       end;
 end;
 
+
+//Table
 procedure TForm6.Button4Click(Sender: TObject);
 var
   i:integer;
@@ -98,8 +105,8 @@ begin
        tableName[i] := Edit3.Text[i+1];
      end;
 
-     if Length(Edit1.text) <> 10 then begin
-        Edit1.Text := 'Name not right length';
+     if Length(Edit3.text) <> 10 then begin
+        Edit3.Text := 'Name not right length';
         exit;
       end;
 
@@ -112,6 +119,7 @@ begin
      end;
 
      column.MaxValue:= TBL_PNTR^.num_column - 1;
+     row.MaxValue := TBL_PNTR^.num_row -1;
 
      GroupBox1.Show;
 end;

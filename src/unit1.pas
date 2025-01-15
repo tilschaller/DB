@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Grids,
-  ActnList, Menus,
+  ActnList, Menus,database,
   unit2, unit3, unit5, unit6, unit7, unit8, unit9, unit10;
 
 type
@@ -29,14 +29,12 @@ type
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
-    MenuItem14: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
-    MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     StringGrid1: TStringGrid;
     procedure Button1Click(Sender: TObject);
@@ -121,8 +119,15 @@ end;
 //Table
 procedure TForm1.Button1Click(Sender: TObject);
 var
-  i:integer;
+  i, n:integer;
+  colin, rowin: integer;
+  CONRET: DB_CONTENT_RET;
+  intpntderef: ^integer;
+  strpntderef: array of char;
+  bolpntderef: ^Boolean;
+  strpnt: string[10];
 begin
+  setlength(strpntderef,10);
   for i:=0 to 9 do
   begin
     TBLName[i] := Edit1.Text[i+1];
@@ -142,6 +147,31 @@ begin
 
   StringGrid1.ColCount:= loadTablePntr^.num_column +1;
   StringGrid1.RowCount:= loadTablePntr^.num_row +1;
+
+  for colin:=0 to loadTablePntr^.num_column do
+  begin
+    for rowin:= 0 to loadTablePntr^.num_row do
+    begin
+      CONRET := getContent(loadTablePntr, colin, rowin);
+      Case CONRET._type of
+           DB_TYPE_INTEGER : begin
+             intpntderef:= CONRET.content;
+             StringGrid1.Cells[colin, rowin] := inttostr(intpntderef^);
+           end;
+           DB_TYPE_STRING : begin
+             strpntderef:= CONRET.content;
+             for i:= 0 to 9 do
+             begin
+                strpnt[i + 1] := strpntderef[i];
+             end;
+             StringGrid1.Cells[colin, rowin] := strpnt;
+           end;
+           DB_TYPE_BOOLEAN : begin
+
+           end;
+  end;
+    end;
+  end;
 end;
 
 

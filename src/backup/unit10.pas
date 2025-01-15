@@ -106,8 +106,8 @@ begin
 
       type_c:=getcolumntype(tableptr, spinedit2.value);
 
-      if type_c = DB_TYPE_STRING then addcontent(tableptr, spinedit2.value, spinedit1.value, @stringc);
-      else if type_c = DB_TYPE_INTEGER then addcontent(tableptr, spinedit2.value, spinedit1.value, @boolc);
+      if type_c = DB_TYPE_STRING then addcontent(tableptr, spinedit2.value, spinedit1.value, @stringc)
+      else if type_c = DB_TYPE_INTEGER then addcontent(tableptr, spinedit2.value, spinedit1.value, @boolc)
       else if type_c = DB_TYPE_BOOLEAN then addcontent(tableptr, spinedit2.value, spinedit1.value, @intc);
 
      spinedit1.enabled:=true;
