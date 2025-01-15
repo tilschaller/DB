@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 268
   Width = 982
   Caption = 'Database'
-  ClientHeight = 499
+  ClientHeight = 606
   ClientWidth = 982
   Menu = MainMenu1
   LCLVersion = '3.6.0.0'
@@ -114,6 +114,7 @@ object Form1: TForm1
       end
       object MenuItem7: TMenuItem
         Caption = 'Delete Table'
+        OnClick = MenuItem7Click
       end
       object MenuItem8: TMenuItem
         Caption = 'Load Table'
@@ -124,9 +125,11 @@ object Form1: TForm1
       Caption = 'Column'
       object MenuItem9: TMenuItem
         Caption = 'Add Column'
+        OnClick = MenuItem9Click
       end
       object MenuItem10: TMenuItem
         Caption = 'Remove Column'
+        OnClick = MenuItem10Click
       end
     end
     object MenuItem11: TMenuItem
@@ -137,6 +140,7 @@ object Form1: TForm1
       end
       object MenuItem13: TMenuItem
         Caption = 'Remove Content'
+        OnClick = MenuItem13Click
       end
     end
   end

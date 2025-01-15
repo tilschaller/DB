@@ -90,6 +90,20 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit7"/>
       </Unit>
+      <Unit>
+        <Filename Value="unit8.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form8"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit10.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form10"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit10"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

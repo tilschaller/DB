@@ -13,7 +13,7 @@ interface
 
 {$ifdef WINDOWS}
 {$linklib libmsvcrt.a}
-{$linklib libmingw32.a}
+//{$linklib libmingw32.a}
 {$linklib libgcc.a}
 {$endif}
 
@@ -56,7 +56,7 @@ interface
     PDB  = ^DB;
   { }
 
-    STATE = record
+    DB_STATE = record
         num_db : dword;
         top : pointer;
       end;
