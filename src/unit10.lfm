@@ -1,7 +1,7 @@
 object Form10: TForm10
-  Left = 254
+  Left = 1127
   Height = 143
-  Top = 104
+  Top = 374
   Width = 320
   Caption = 'Remove Content'
   ClientHeight = 143

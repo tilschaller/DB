@@ -1,9 +1,9 @@
 object Form1: TForm1
-  Left = 49
+  Left = 608
   Height = 499
-  Top = 484
+  Top = 353
   Width = 982
-  Caption = 'Database'
+  Caption = 'OortschDB'
   ClientHeight = 499
   ClientWidth = 982
   Menu = MainMenu1
@@ -14,20 +14,6 @@ object Form1: TForm1
     Top = 120
     Width = 968
     TabOrder = 0
-  end
-  object Label4: TLabel
-    Left = 664
-    Height = 15
-    Top = 0
-    Width = 23
-    Caption = 'Size:'
-  end
-  object Label3: TLabel
-    Left = 808
-    Height = 15
-    Top = 0
-    Width = 28
-    Caption = 'Total:'
   end
   object GroupBox1: TGroupBox
     Left = 8

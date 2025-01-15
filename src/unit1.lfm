@@ -1,9 +1,9 @@
 object Form1: TForm1
-  Left = 93
+  Left = 837
   Height = 499
-  Top = 321
+  Top = 395
   Width = 982
-  Caption = 'Database'
+  Caption = 'OortschDB'
   ClientHeight = 499
   ClientWidth = 982
   Menu = MainMenu1

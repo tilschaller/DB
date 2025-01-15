@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 
-STATE state = {0};
+STATE state = {0};	/*State-Struct in dem alle Pointer zu den Datenbank-Headern gespeichert wird*/
 
 /*Speichergr��e eines bestimmten Datentyps bekommen*/
 size_t getSize(DB_TYPE type) {
@@ -45,7 +45,7 @@ void createDatabase(char name[DB_STRING_SIZE]) {
 /*L�schen einer Datenbank*/
 void deleteDatabase(DB* db) {
 	if (db == 0) {return;}	/*Wenn keine Datenbank existiert, kann auch keine gel�scht werden
-								--> kein L�schen einer Datenbank*/
+								--> kein Löschen einer Datenbank*/
 
 	for (int i = 0; i<state.num_db; i++) {
 		deleteTable(db, (DB_TABLE*)db->database + i);

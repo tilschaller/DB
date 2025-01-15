@@ -15,6 +15,8 @@ type
     Button1: TButton;
     Edit1: TEdit;
     Edit2: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
     procedure Button1Click(Sender: TObject);
   private
 

@@ -80,6 +80,7 @@ procedure TForm8.Button2Click(Sender: TObject);
   tableptr:=getTable(getDB(form8.db_name), form8.table_name);
   if tableptr^.num_column = 0 then begin
      spinedit1.Enabled:=false;
+     spinedit1.Value:=-1;
   end;
   spinedit1.maxvalue:=-1+tableptr^.num_column;
   spinedit1.minvalue:=-1;

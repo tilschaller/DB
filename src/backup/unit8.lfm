@@ -1,7 +1,7 @@
 object Form8: TForm8
-  Left = 570
+  Left = 547
   Height = 186
-  Top = 122
+  Top = 110
   Width = 323
   Caption = 'Add Column'
   ClientHeight = 186
@@ -48,6 +48,7 @@ object Form8: TForm8
       Width = 312
       Caption = 'Add Column'
       TabOrder = 0
+      OnClick = Button1Click
     end
     object Label1: TLabel
       Left = 0

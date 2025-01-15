@@ -17,6 +17,8 @@ type
     Edit1: TEdit;
     Edit2: TEdit;
     GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
     SpinEdit1: TSpinEdit;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -70,7 +72,6 @@ var
   end;
   if tableptr^.num_column = 1 then begin
     spinedit1.enabled:=false;
-    exit;
   end;
   spinedit1.maxvalue:=-1+tableptr^.num_column;
   spinedit1.minvalue:=0;
